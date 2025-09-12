@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-container">
+
+    <label class="toggle">
+      <input type="checkbox" id="musicVideo" />
+      <div class="label-group">
+        <span class="title">Keep Music Videos as Videos</span>
+        <p class="description">Prevents YouTube from turning music videos into Mix playlists.</p>
+      </div>
+    </label>
+
+    <label class="toggle">
+      <input type="checkbox" id="genericMix" />
+      <div class="label-group">
+        <span class="title">Turn Mixes to Music Videos</span>
+        <p class="description">Instead of starting the Mix, only the displayed video is played.</p>
+      </div>
+    </label>
+
+    <label class="toggle">
+      <input type="checkbox" id="myMix" />
+      <div class="label-group">
+        <span class="title">Turn My Mix to Music Video</span>
+        <p class="description">Instead of starting My Mix, only the displayed video is played.</p>
+      </div>
+    </label>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

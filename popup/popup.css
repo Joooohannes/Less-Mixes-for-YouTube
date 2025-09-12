@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  width: 300px;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #202124;
+}
+
+.toggle {
+  display: flex;
+  align-items: flex-start; /* keep label group starting at top */
+  gap: 0.6rem;
+  background: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  align-self: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.label-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-group .title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #202124;
+  line-height: 1.2;
+}
+
+.label-group .description {
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0.2rem 0 0;
+  line-height: 1.2;
+}

@@ -23,8 +23,18 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 document.addEventListener("click", function (e) {
-  const container = e.target.closest("yt-lockup-view-model");
-  const anchor = container?.querySelector("a");
+  const container = e.target.closest("yt-lockup-view-model, ytd-video-renderer");
+
+  if(!container) {
+    const player = e.target.closest("#inline-preview-player");
+    const playerAnchor = player?.querySelector(".ytp-title-link");
+    if(playerAnchor){
+      window.location.replace(playerAnchor.href);
+    }
+    return;
+  }
+
+  const anchor = container.querySelector("a");
 
   if (!anchor || !anchor.href.includes("/watch")) return;
 

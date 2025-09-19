@@ -11,7 +11,7 @@ All users of Chromium-based browsers such as **Chrome, Brave, Opera, Vivaldi, et
 
 **Firefox** users can install the extension via the Firefox Add-Ons Store:
 
-- [Firefox Add-Ons](https://chromewebstore.google.com/detail/pbmdjdjipgfioefdgpflclcbcfbmbpfp?utm_source=item-share-cb)
+- [Firefox Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/less-mixes-for-youtube/)
 
 ## How It Works
 

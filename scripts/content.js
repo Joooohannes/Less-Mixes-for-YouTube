@@ -60,6 +60,12 @@ document.addEventListener("click", function (e) {
     e.preventDefault(); // Only for Firefox
     e.stopPropagation(); // Only for Firefox
     const cleanUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    if(e.target.id === "dismissible") {
+      window.location.href = cleanUrl;
+      return;
+    }
+
     window.location.replace(cleanUrl);
   }
 }, true);

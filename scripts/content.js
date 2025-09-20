@@ -31,6 +31,8 @@ document.addEventListener("click", function (e) {
     const player = e.target.closest("#inline-preview-player");
     const playerAnchor = player?.querySelector(".ytp-title-link");
     if(playerAnchor){
+      e.preventDefault(); // Only for Firefox
+      e.stopPropagation(); // Only for Firefox
       window.location.replace(playerAnchor.href);
     }
     return;
@@ -55,6 +57,8 @@ document.addEventListener("click", function (e) {
   const shouldRedirect = shouldMusicVideoToggle || shouldGenericMixToggle || shouldMyMixToggle;
   
   if (shouldRedirect) {
+    e.preventDefault(); // Only for Firefox
+    e.stopPropagation(); // Only for Firefox
     const cleanUrl = `https://www.youtube.com/watch?v=${videoId}`;
     window.location.replace(cleanUrl);
   }

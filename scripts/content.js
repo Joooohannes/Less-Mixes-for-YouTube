@@ -33,7 +33,7 @@ document.addEventListener("click", function (e) {
     if(playerAnchor){
       e.preventDefault(); // Only for Firefox
       e.stopPropagation(); // Only for Firefox
-      window.location.replace(playerAnchor.href);
+      window.location.replace(playerAnchor.href); // Firefox: window.location.href = playerAnchor.href;
     }
     return;
   }
@@ -61,11 +61,12 @@ document.addEventListener("click", function (e) {
     e.stopPropagation(); // Only for Firefox
     const cleanUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
+    // Only for Chrome
     if(e.target.id === "dismissible") {
       window.location.href = cleanUrl;
       return;
     }
 
-    window.location.replace(cleanUrl);
+    window.location.replace(cleanUrl); // Firefox: window.location.href = cleanUrl;
   }
 }, true);

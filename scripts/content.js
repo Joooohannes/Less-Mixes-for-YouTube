@@ -23,7 +23,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 document.addEventListener("click", function (e) {
-  if (e.target.closest(".yt-lockup-metadata-view-model__menu-button")) return;
+  if (e.target.closest(".yt-lockup-metadata-view-model__menu-button, .dropdown-trigger")) return;
 
   const container = e.target.closest("yt-lockup-view-model, ytd-video-renderer");
 

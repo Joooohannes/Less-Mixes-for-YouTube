@@ -23,22 +23,17 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 document.addEventListener("click", function (e) {
-  if (e.target.closest(".yt-lockup-metadata-view-model__menu-button, .dropdown-trigger")) return;
+  if (e.target.closest(".yt-lockup-metadata-view-model__menu-button, .dropdown-trigger, #channel-name, #channel-thumbnail, yt-decorated-avatar-view-model, .yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color, ytm-channel-thumbnail-with-link-renderer")) return; // ytm-channel-thumbnail-with-link-renderer: Support for Firefox for Android
 
-  const container = e.target.closest("yt-lockup-view-model, ytd-video-renderer");
+  const container = e.target.closest("yt-lockup-view-model, ytd-video-renderer, ytm-video-with-context-renderer, ytm-compact-radio-renderer, ytm-rich-item-renderer"); // ytm-video-with-context-renderer, ytm-compact-radio-renderer, ytm-rich-item-renderer: Support for Firefox for Android
+  let anchor = container?.querySelector("a");
 
   if(!container) {
-    const player = e.target.closest("#inline-preview-player");
-    const playerAnchor = player?.querySelector(".ytp-title-link");
-    if(playerAnchor){
-      e.preventDefault(); // Only for Firefox
-      e.stopPropagation(); // Only for Firefox
-      window.location.replace(playerAnchor.href); // Firefox: window.location.href = playerAnchor.href;
-    }
-    return;
-  }
+    const player = e.target.closest("#media-container-link, #thumbnail");
+    if(!player) return;
 
-  const anchor = container.querySelector("a");
+    anchor = player;
+  }
 
   if (!anchor || !anchor.href.includes("/watch")) return;
 

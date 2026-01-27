@@ -23,7 +23,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 document.addEventListener("click", function (e) {
-  if (e.target.closest(".yt-lockup-metadata-view-model__menu-button, .dropdown-trigger, #channel-name, #channel-thumbnail, yt-decorated-avatar-view-model, .yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color, ytm-channel-thumbnail-with-link-renderer")) return; // ytm-channel-thumbnail-with-link-renderer: Support for Firefox for Android
+  if (e.target.closest(".yt-lockup-metadata-view-model__menu-button, .dropdown-trigger, #channel-name, #channel-thumbnail, yt-decorated-avatar-view-model, .yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color, ytm-channel-thumbnail-with-link-renderer, .ytThumbnailHoverOverlayToggleActionsViewModelButton, .media-channel, .media-item-menu")) return; // ytm-channel-thumbnail-with-link-renderer, .media-channel, .media-item-menu: Support for Firefox for Android
 
   const container = e.target.closest("yt-lockup-view-model, ytd-video-renderer, ytm-video-with-context-renderer, ytm-compact-radio-renderer, ytm-rich-item-renderer"); // ytm-video-with-context-renderer, ytm-compact-radio-renderer, ytm-rich-item-renderer: Support for Firefox for Android
   let anchor = container?.querySelector("a");
@@ -45,9 +45,9 @@ document.addEventListener("click", function (e) {
 
   if (!videoId) return;
 
-  const shouldMusicVideoToggle = pp && list && list.startsWith("RD") && !list.startsWith("RDMM") && !index && musicVideoToggle;
-  const shouldGenericMixToggle = !pp && list && list.startsWith("RD") && !list.startsWith("RDMM") && !index && genericMixToggle;
-  const shouldMyMixToggle = list && list.startsWith("RDMM") && !index && myMixToggle;
+  const shouldMusicVideoToggle = pp && list && list.startsWith("RD") && list.length == 13 && !index && musicVideoToggle;
+  const shouldGenericMixToggle = !pp && list && list.startsWith("RD") && list.length != 15 && !index && genericMixToggle;
+  const shouldMyMixToggle = list && list.startsWith("RDMM") && list.length == 15 && !index && myMixToggle;
 
   const shouldRedirect = shouldMusicVideoToggle || shouldGenericMixToggle || shouldMyMixToggle;
   

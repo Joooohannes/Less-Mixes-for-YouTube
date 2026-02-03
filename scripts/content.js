@@ -42,14 +42,17 @@ document.addEventListener("click", function (e) {
   const list = url.searchParams.get("list");
   const index = url.searchParams.get("index");
   const pp = url.searchParams.get("pp");
+  const rv = url.searchParams.get("rv");
 
   if (!videoId) return;
 
   const shouldMusicVideoToggle = pp && list && list.startsWith("RD") && list.length == 13 && !index && musicVideoToggle;
-  const shouldGenericMixToggle = !pp && list && list.startsWith("RD") && list.length != 15 && !index && genericMixToggle;
-  const shouldMyMixToggle = list && list.startsWith("RDMM") && list.length == 15 && !index && myMixToggle;
+  const shouldGenericMixToggle1 = !pp && list && list.startsWith("RD") && list.length == 13 && !index && genericMixToggle;
+  const shouldGenericMixToggle2 = rv && pp && list && list.startsWith("RD") && list.length == 13 && !index && genericMixToggle;
+  const shouldGenericMixToggle3 = list && list.startsWith("RD") && list.length != 4 && list.length != 13 && list.length != 15 && !index && genericMixToggle;
+  const shouldMyMixToggle = list && list.startsWith("RDMM") && (list.length == 15 || list.length == 4) && !index && myMixToggle;
 
-  const shouldRedirect = shouldMusicVideoToggle || shouldGenericMixToggle || shouldMyMixToggle;
+  const shouldRedirect = shouldMusicVideoToggle || shouldGenericMixToggle1 || shouldGenericMixToggle2 || shouldGenericMixToggle3 || shouldMyMixToggle;
   
   if (shouldRedirect) {
     e.preventDefault(); // Only for Firefox

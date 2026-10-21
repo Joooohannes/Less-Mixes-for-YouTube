@@ -29,7 +29,7 @@ document.addEventListener("click", function (e) {
   let anchor = container?.querySelector("a");
 
   if(!container) {
-    const player = e.target.closest("#media-container-link, #thumbnail");
+    const player = e.target.closest("#media-container-link, #thumbnail, .yt-simple-endpoint");
     if(!player) return;
 
     anchor = player;
